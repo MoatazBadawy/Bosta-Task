@@ -42,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.6"
@@ -74,6 +75,6 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     // Retrofit & OkHttp & Gson
-    implementation(libs.retrofit)
+    implementation(libs.retrofitAndroid)
     implementation(libs.converter.gson)
 }
