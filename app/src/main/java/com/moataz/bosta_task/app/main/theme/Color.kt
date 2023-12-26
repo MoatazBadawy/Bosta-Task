@@ -1,4 +1,4 @@
-package com.moataz.bosta_task.ui.theme
+package com.moataz.bosta_task.app.main.theme
 
 import androidx.compose.ui.graphics.Color
 
