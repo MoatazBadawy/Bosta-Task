@@ -1,6 +1,7 @@
 package com.moataz.bosta_task.features.photos.ui.view.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,7 +11,8 @@ import com.moataz.bosta_task.features.photos.ui.viewmodel.model.PhotoUI
 
 @Composable
 fun PhotoItem(
-    photo: PhotoUI
+    photo: PhotoUI,
+    onImageClicked: (String) -> Unit
 ) {
     val painter = rememberImagePainter(
         data = photo.url,
@@ -22,6 +24,12 @@ fun PhotoItem(
     Image(
         painter = painter,
         contentDescription = null,
-        modifier = Modifier.aspectRatio(1f)
+        modifier = Modifier
+            .aspectRatio(1f)
+            .clickable(
+                onClick = {
+                    onImageClicked(photo.url)
+                }
+            )
     )
 }

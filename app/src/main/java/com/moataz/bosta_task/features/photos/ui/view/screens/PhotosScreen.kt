@@ -17,18 +17,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.moataz.bosta_task.app.main.theme.White50
 import com.moataz.bosta_task.common.ui.component.ErrorMessage
 import com.moataz.bosta_task.common.ui.component.Loading
 import com.moataz.bosta_task.common.ui.component.Toolbar
 import com.moataz.bosta_task.features.photos.ui.view.component.PhotoItem
 import com.moataz.bosta_task.features.photos.ui.view.component.SearchView
+import com.moataz.bosta_task.features.photos.ui.view.navigation.navigateToImageScreen
 import com.moataz.bosta_task.features.photos.ui.viewmodel.PhotosViewModel
 import com.moataz.bosta_task.features.photos.ui.viewmodel.model.PhotoUI
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PhotosScreen(
+    navController: NavController,
     viewModel: PhotosViewModel = hiltViewModel()
 ) {
     val photosUIState by viewModel.photosState.collectAsState()
@@ -50,7 +53,8 @@ fun PhotosScreen(
 
                     photosUIState.isSuccessful -> PhotosContent(
                         photos = photosUIState.photos,
-                        viewModel = viewModel
+                        viewModel = viewModel,
+                        navigateToImageScreen = navController::navigateToImageScreen
                     )
 
                     photosUIState.isError -> ErrorMessage()
@@ -63,7 +67,8 @@ fun PhotosScreen(
 @Composable
 fun PhotosContent(
     photos: List<PhotoUI>,
-    viewModel: PhotosViewModel
+    viewModel: PhotosViewModel,
+    navigateToImageScreen: (String) -> Unit
 ) {
     Column {
         SearchView(viewModel = viewModel)
@@ -73,7 +78,10 @@ fun PhotosContent(
             contentPadding = PaddingValues(0.dp)
         ) {
             items(photos) { photo ->
-                PhotoItem(photo = photo)
+                PhotoItem(
+                    photo = photo,
+                    onImageClicked = navigateToImageScreen
+                )
             }
         }
     }

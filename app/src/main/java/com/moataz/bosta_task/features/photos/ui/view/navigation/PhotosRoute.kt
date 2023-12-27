@@ -9,7 +9,7 @@ import com.moataz.bosta_task.common.ui.navigation.Screen
 import com.moataz.bosta_task.features.photos.ui.view.screens.PhotosScreen
 import com.moataz.bosta_task.features.photos.ui.viewmodel.PhotosArgs
 
-fun NavGraphBuilder.photosRoute() {
+fun NavGraphBuilder.photosRoute(navController: NavController) {
     composable(
         route = "${Screen.Photos.route}/{${PhotosArgs.ALBUM_ID}}/{${PhotosArgs.ALBUM_TITLE}}",
         arguments = listOf(
@@ -21,7 +21,7 @@ fun NavGraphBuilder.photosRoute() {
             },
         )
     ) {
-        PhotosScreen()
+        PhotosScreen(navController = navController)
     }
 }
 
