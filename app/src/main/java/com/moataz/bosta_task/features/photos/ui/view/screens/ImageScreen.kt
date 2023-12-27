@@ -89,27 +89,6 @@ fun ImageContent(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(top = 8.dp),
-        ) {
-            IconButton(
-                onClick = { onBackClicked() },
-            ) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = null)
-            }
-            Text(
-                text = "Preview",
-                style = TextStyle(
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp,
-                    color = Black,
-                ),
-            )
-        }
-
         Image(
             painter = rememberImagePainter(
                 data = image,
@@ -131,5 +110,26 @@ fun ImageContent(
                     }
                 }
         )
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(top = 8.dp),
+        ) {
+            IconButton(
+                onClick = { onBackClicked() },
+            ) {
+                Icon(Icons.Filled.ArrowBack, contentDescription = null)
+            }
+            Text(
+                text = "Preview",
+                style = TextStyle(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    color = Black,
+                ),
+            )
+        }
     }
 }
