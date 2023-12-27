@@ -25,7 +25,7 @@ class PhotosViewModel @Inject constructor(
     state: SavedStateHandle,
 ) : ViewModel() {
 
-    private var _photosArgs = PhotosArgs(state)
+    private val _photosArgs = PhotosArgs(state)
 
     private val _albumTitle = MutableStateFlow("")
     val albumTitle get() = _albumTitle.asStateFlow()
