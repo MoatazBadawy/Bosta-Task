@@ -63,7 +63,7 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -77,4 +77,9 @@ dependencies {
     // Retrofit & OkHttp & Gson
     implementation(libs.retrofitAndroid)
     implementation(libs.converter.gson)
+    // lifecycle scope for viewmodel
+    implementation(libs.lifecycle.viewmodel.ktx)
+    // navigation component
+    implementation(libs.navigation.compose)
+    implementation(libs.navigation.compose.hilt)
 }
