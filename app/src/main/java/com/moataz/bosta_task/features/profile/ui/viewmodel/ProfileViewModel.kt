@@ -1,4 +1,4 @@
-package com.moataz.bosta_task.features.profile.ui.viewmodel.model
+package com.moataz.bosta_task.features.profile.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
