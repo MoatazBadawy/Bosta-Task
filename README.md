@@ -32,7 +32,7 @@ The app follows the Clean Architecture structure and MVVM to provide logical sim
 #### 🧩 Structure
 The app is structured by feature, every feature has it is one (data - domain - UI). 
 > [!NOTE]
-> This structure is inside the project app (we didn't use Modulaztraion).
+> This structure is inside the project app (we didn't use Modularization).
 
       + app/ 
           + di <- handle app dependency injections modules.
