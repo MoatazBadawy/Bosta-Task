@@ -55,7 +55,16 @@ fun ImageScreen(
             )
         }
 
-
+        FloatingActionButton(
+            onClick = { shareImage(context, image) },
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 24.dp),
+            backgroundColor = Black,
+            contentColor = WhiteLight,
+        ) {
+            Icon(Icons.Filled.Share, contentDescription = null)
+        }
     }
 }
 
