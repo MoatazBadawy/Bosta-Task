@@ -39,7 +39,7 @@ The app is structured by feature, every feature has it is one (data - domain - U
           + main <- contains mainactivity class.
       + common/ 
           + ui <- the common ui components between the features.
-      + feature's/
+      + features/
           + photos/ 
              + data <- implements the repository interface defined in the domain layer
                - remote 
@@ -56,7 +56,7 @@ The app is structured by feature, every feature has it is one (data - domain - U
 
 ## 🔧 Tech stack & Open-source libraries
 - Minimum SDK level 24
-- [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
+- [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) is Android's recommended by Google modern toolkit for building native UI.
 - Jetpack
   - Lifecycle: Observe Android lifecycles and handle UI states upon the lifecycle changes.
