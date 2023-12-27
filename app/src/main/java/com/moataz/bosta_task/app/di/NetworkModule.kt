@@ -1,7 +1,7 @@
 package com.moataz.bosta_task.app.di
 
 import com.moataz.bosta_task.BuildConfig
-import com.moataz.bosta_task.profile.ProfileService
+import com.moataz.bosta_task.features.profile.data.remote.ProfileService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
