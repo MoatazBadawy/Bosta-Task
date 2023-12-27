@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.moataz.bosta_task.app.main.theme.BostaTaskTheme
-import com.moataz.bosta_task.features.profile.ui.view.screens.ProfileScreen
+import com.moataz.bosta_task.common.ui.navigation.MainNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BostaTaskTheme {
-                ProfileScreen()
+                MainNavGraph()
             }
         }
     }

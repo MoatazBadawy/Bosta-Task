@@ -1,4 +1,4 @@
-package com.moataz.bosta_task.common.component
+package com.moataz.bosta_task.common.ui.component
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
