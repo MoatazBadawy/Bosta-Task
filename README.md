@@ -19,10 +19,10 @@ The app contains the following features
 - [x] Get a random user every time open the app, and display Info and his albums in a list.
 - [x] Use Navigation Compose to navigate between app screens, and send arguments using parcelable. 
 - [x] Search for images by title, and use a delay to give space to the user to write what he wants and reduce the number of requests on the API. 
-- [x] Display the image on a new screen, and ZoomIn and ZoomOut and share the image with friends outside the app.
+- [x] Display the image on a new screen, and ZoomIn-ZoomOut, and share the image with friends outside the application.
 
 #### 🏗️ Project Architecture
-Mawaqeet follows the Clean Architecture structure and MVVM to provide logical simplicity and maintainability. <br> 
+The app follows the Clean Architecture structure and MVVM to provide logical simplicity and maintainability. <br> 
 - The domain layer contains UseCases that encapsulate a single, specific task that is part of the application's business logic. <br>
 - The data layer implements the repository interface defined in the domain layer, providing a single source of truth for data. <br>
 - The UI layer cnotance view and ViewModel layers, it uses all the components and classes related to the Android framework to get the data from the ViewModel layer and display it on the device.
