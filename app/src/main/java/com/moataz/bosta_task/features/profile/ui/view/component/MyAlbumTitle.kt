@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.sp
 import com.moataz.bosta_task.app.main.theme.Black
 
 @Composable
-fun AlbumTitle(
+fun MyAlbumTitle(
     title: String,
 ) {
     Text(

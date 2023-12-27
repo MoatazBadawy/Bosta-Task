@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,10 +16,13 @@ import androidx.compose.ui.unit.sp
 import com.moataz.bosta_task.app.main.theme.Black
 import com.moataz.bosta_task.app.main.theme.MainColor
 import com.moataz.bosta_task.app.main.theme.White50
+import com.moataz.bosta_task.features.profile.ui.viewmodel.model.album.AlbumUI
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AlbumItem(
-    title: String,
+    album: AlbumUI,
+    onAlbumClicked: (Long, String) -> Unit,
 ) {
     Card(
         modifier = Modifier
@@ -27,6 +31,9 @@ fun AlbumItem(
         shape = RoundedCornerShape(0.dp),
         backgroundColor = White50,
         elevation = 0.dp,
+        onClick = {
+            onAlbumClicked(album.id, album.title)
+        }
     ) {
         Column(
             modifier = Modifier
@@ -38,7 +45,7 @@ fun AlbumItem(
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             Text(
-                text = title,
+                text = album.title,
                 style = TextStyle(
                     fontSize = 14.sp,
                     color = Black,

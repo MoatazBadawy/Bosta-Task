@@ -15,21 +15,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.moataz.bosta_task.app.main.theme.White50
-import com.moataz.bosta_task.common.component.ErrorMessage
-import com.moataz.bosta_task.common.component.Loading
-import com.moataz.bosta_task.common.component.Toolbar
+import com.moataz.bosta_task.common.ui.component.ErrorMessage
+import com.moataz.bosta_task.common.ui.component.Loading
+import com.moataz.bosta_task.common.ui.component.Toolbar
+import com.moataz.bosta_task.features.photos.ui.view.navigation.navigateToPhotosScreen
 import com.moataz.bosta_task.features.profile.ui.view.component.AlbumItem
-import com.moataz.bosta_task.features.profile.ui.view.component.AlbumTitle
+import com.moataz.bosta_task.features.profile.ui.view.component.MyAlbumTitle
 import com.moataz.bosta_task.features.profile.ui.view.component.UserInformation
-import com.moataz.bosta_task.features.profile.ui.viewmodel.model.ProfileViewModel
+import com.moataz.bosta_task.features.profile.ui.viewmodel.ProfileViewModel
 import com.moataz.bosta_task.features.profile.ui.viewmodel.model.album.AlbumUI
 import com.moataz.bosta_task.features.profile.ui.viewmodel.model.user.UserUI
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ProfileScreen(
-    viewModel: ProfileViewModel = hiltViewModel(),
+    navController: NavController,
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val profileUIState by viewModel.profileState.collectAsState()
 
@@ -50,6 +53,7 @@ fun ProfileScreen(
                     profileUIState.isSuccessful -> ProfileContent(
                         user = profileUIState.user,
                         albums = profileUIState.albums,
+                        navigateToPhotosScreen = navController::navigateToPhotosScreen
                     )
 
                     profileUIState.isError -> ErrorMessage()
@@ -63,15 +67,19 @@ fun ProfileScreen(
 fun ProfileContent(
     user: UserUI,
     albums: List<AlbumUI>,
+    navigateToPhotosScreen: (Long, String) -> Unit
 ) {
     Column {
         UserInformation(user = user)
 
-        AlbumTitle(title = "My Albums")
+        MyAlbumTitle(title = "My Albums")
 
         LazyColumn {
             items(albums) { album ->
-                AlbumItem(title = album.title)
+                AlbumItem(
+                    album,
+                    onAlbumClicked = navigateToPhotosScreen
+                )
             }
         }
     }
