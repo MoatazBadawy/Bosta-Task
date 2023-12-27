@@ -1,6 +1,7 @@
 package com.moataz.bosta_task.app.di
 
 import com.moataz.bosta_task.BuildConfig
+import com.moataz.bosta_task.features.photos.data.remote.PhotosService
 import com.moataz.bosta_task.features.profile.data.remote.ProfileService
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,14 @@ object NetworkModule {
         retrofit: Retrofit,
     ): ProfileService {
         return retrofit.create(ProfileService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun providePhotosNetworkService(
+        retrofit: Retrofit,
+    ): PhotosService {
+        return retrofit.create(PhotosService::class.java)
     }
 
     @Singleton

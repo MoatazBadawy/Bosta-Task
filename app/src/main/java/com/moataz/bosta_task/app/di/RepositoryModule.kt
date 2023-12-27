@@ -1,5 +1,7 @@
 package com.moataz.bosta_task.app.di
 
+import com.moataz.bosta_task.features.photos.data.repositories.PhotosRepositoryImpl
+import com.moataz.bosta_task.features.photos.domain.repository.PhotosRepository
 import com.moataz.bosta_task.features.profile.data.repositories.ProfileRepositoryImpl
 import com.moataz.bosta_task.features.profile.domain.repository.ProfileRepository
 import dagger.Binds
@@ -17,4 +19,10 @@ abstract class RepositoryModule {
     abstract fun bindProfileRepository(
         profileRepositoryImpl: ProfileRepositoryImpl,
     ): ProfileRepository
+
+    @ViewModelScoped
+    @Binds
+    abstract fun bindPhotosRepository(
+        photosRepositoryImpl: PhotosRepositoryImpl,
+    ): PhotosRepository
 }
